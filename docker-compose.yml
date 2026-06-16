@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: mindcare
+      POSTGRES_DB: lumicare
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/mindcare
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/lumicare
       PORT: 3333
       NODE_ENV: production
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
