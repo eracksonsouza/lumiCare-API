@@ -1,8 +1,8 @@
-# MindCare — Backend
+# LumiCare — Backend
 
-API REST do MindCare para registrar check-ins emocionais de forma anônima usando um token de sincronização (Bearer). Não usa e‑mail nem senha.
+API REST do LumiCare para registrar check-ins emocionais de forma anônima usando um token de sincronização (Bearer). Não usa e‑mail nem senha.
 
-## O que é o MindCare
+## O que é o LumiCare
 
 Aplicação de bem‑estar emocional para registrar como a pessoa está se sentindo ao longo do tempo.
 
@@ -41,14 +41,14 @@ Pré-requisitos: Node.js 20+ e PostgreSQL.
 
 ```bash
 git clone <url-do-repo>
-cd mindcare-backend
+cd lumicare-backend
 npm install
 ```
 
 Crie `.env` na raiz:
 
 ```env
-DATABASE_URL="postgresql://usuario:senha@localhost:5432/mindcare"
+DATABASE_URL="postgresql://usuario:senha@localhost:5432/lumicare"
 CORS_ORIGINS="http://localhost:5173"
 PORT=3333
 ```
@@ -67,14 +67,14 @@ Pré-requisito: Docker instalado.
 
 ```bash
 # build da imagem
-docker build -t mindcare-backend .
+docker build -t lumicare-backend .
 
 # subir o container (ajuste a DATABASE_URL se necessário)
 docker run --rm -p 3333:3333 \
-  -e DATABASE_URL="postgresql://usuario:senha@host.docker.internal:5432/mindcare" \
+  -e DATABASE_URL="postgresql://usuario:senha@host.docker.internal:5432/lumicare" \
   -e CORS_ORIGINS="http://localhost:5173" \
   -e PORT=3333 \
-  mindcare-backend
+  lumicare-backend
 ```
 
 Se preferir, posso adicionar também um `docker-compose.yml` com PostgreSQL.
