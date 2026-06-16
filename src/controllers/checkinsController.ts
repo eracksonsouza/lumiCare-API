@@ -21,32 +21,12 @@ export async function createCheckIn(req: Request, res: Response) {
   try {
     const tokenId = res.locals.tokenId as string;
     const { emotion, intensity, timestamp } = req.body as {
-      emotion: string;
+      emotion: "happy" | "calm" | "neutral" | "anxious" | "sad";
       intensity: number;
       timestamp: string;
     };
 
-    if (!emotion || typeof intensity !== "number" || !timestamp) {
-      res.status(400).json({ error: "Campos obrigatórios: emotion, intensity, timestamp" });
-      return;
-    }
-
-    if (!(VALID_EMOTIONS as readonly string[]).includes(emotion)) {
-      res.status(400).json({ error: "Emoção inválida" });
-      return;
-    }
-
-    if (!Number.isInteger(intensity) || intensity < 1 || intensity > 10) {
-      res.status(400).json({ error: "Intensidade deve ser um inteiro entre 1 e 10" });
-      return;
-    }
-
     const parsedDate = new Date(timestamp);
-    if (isNaN(parsedDate.getTime())) {
-      res.status(400).json({ error: "Timestamp inválido" });
-      return;
-    }
-
     const now = new Date();
     if (parsedDate > now) {
       res.status(400).json({ error: "Timestamp não pode ser no futuro" });

@@ -22,21 +22,6 @@ export async function createJournalEntry(req: Request, res: Response) {
     const tokenId = res.locals.tokenId as string;
     const { prompt, content } = req.body as { prompt: string; content: string };
 
-    if (!prompt?.trim() || !content?.trim()) {
-      res.status(400).json({ error: "Campos obrigatórios: prompt, content" });
-      return;
-    }
-
-    if (prompt.length > MAX_PROMPT_LENGTH) {
-      res.status(400).json({ error: `Prompt deve ter no máximo ${MAX_PROMPT_LENGTH} caracteres` });
-      return;
-    }
-
-    if (content.length > MAX_CONTENT_LENGTH) {
-      res.status(400).json({ error: `Conteúdo deve ter no máximo ${MAX_CONTENT_LENGTH} caracteres` });
-      return;
-    }
-
     const entry = await prisma.journalEntry.create({
       data: { prompt: prompt.trim(), content: content.trim(), tokenId },
     });
