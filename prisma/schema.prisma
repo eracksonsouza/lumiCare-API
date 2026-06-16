@@ -39,3 +39,9 @@ model AvatarUser {
   passwordHash String
   createdAt    DateTime @default(now())
 }
+
+model MuralMessage {
+  id        String   @id @default(cuid())
+  content   String
+  createdAt DateTime @default(now())
+}
