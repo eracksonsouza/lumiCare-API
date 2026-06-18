@@ -1,0 +1,12 @@
+-- CreateTable
+CREATE TABLE "MuralMessage" (
+    "id" TEXT NOT NULL,
+    "content" TEXT NOT NULL,
+    "color" TEXT NOT NULL DEFAULT '#FFF9C4',
+    "posX" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "posY" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "isHighlighted" BOOLEAN NOT NULL DEFAULT false,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "MuralMessage_pkey" PRIMARY KEY ("id")
+);
