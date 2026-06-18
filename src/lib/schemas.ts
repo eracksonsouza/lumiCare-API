@@ -35,6 +35,15 @@ export const muralMessageSchema = z.object({
     .trim()
     .min(1, "O bilhete não pode estar vazio")
     .max(150, "O bilhete deve ter no máximo 150 caracteres"),
+  color: z.string().optional(),
+  posX: z.number().optional(),
+  posY: z.number().optional(),
+});
+
+export const muralUpdateSchema = z.object({
+  posX: z.number().optional(),
+  posY: z.number().optional(),
+  isHighlighted: z.boolean().optional(),
 });
 
 export const tokenCreateSchema = z.object({
