@@ -41,7 +41,11 @@ model AvatarUser {
 }
 
 model MuralMessage {
-  id        String   @id @default(cuid())
-  content   String
-  createdAt DateTime @default(now())
+  id            String   @id @default(cuid())
+  content       String
+  color         String   @default("#FFF9C4")
+  posX          Float    @default(0)
+  posY          Float    @default(0)
+  isHighlighted Boolean  @default(false)
+  createdAt     DateTime @default(now())
 }

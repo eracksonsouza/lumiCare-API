@@ -4,7 +4,9 @@ API REST do LumiCare para registrar check-ins emocionais de forma anônima usand
 
 ## O que é o LumiCare
 
-Aplicação de bem‑estar emocional para registrar como a pessoa está se sentindo ao longo do tempo.
+Plataforma de **apoio emocional para estudantes**. Ajuda alunos do ensino médio, pré-vestibular e universitários a lidar com a ansiedade das provas e a pressão da rotina escolar, por meio de check-ins emocionais anônimos, diário emocional, mural positivo e o acompanhamento da própria evolução.
+
+O projeto está alinhado às **ODS da ONU**: **ODS 3 — Saúde e Bem-Estar** e **ODS 4 — Educação de Qualidade**.
 
 ## Como funciona (resumo)
 
@@ -34,6 +36,10 @@ Aplicação de bem‑estar emocional para registrar como a pessoa está se senti
 - GET `/api/checkins` (auth)
 - POST `/api/checkins` (auth)
 - DELETE `/api/checkins` (auth)
+- GET `/api/analytics/weekly` (auth) — base da "Minha Evolução"
+- GET/POST `/api/journal` · DELETE `/api/journal/:id` (auth) — Diário Emocional
+- GET/POST `/api/mural` — Mural Positivo
+- POST `/api/auth/avatar/register` · POST `/api/auth/avatar/login`
 
 ## Como rodar localmente
 

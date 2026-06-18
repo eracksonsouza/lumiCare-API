@@ -42,7 +42,7 @@ export async function getWeeklyAnalytics(_req: Request, res: Response) {
       average: 0,
       saddestDay: null,
       happiestDay: null,
-      insight: "Você ainda não tem check-ins registrados.",
+      insight: "Você ainda não tem check-ins registrados. Que tal começar registrando como se sente hoje?",
     });
     return;
   }
@@ -99,13 +99,13 @@ export async function getWeeklyAnalytics(_req: Request, res: Response) {
       ? happyDays.reduce((p, c) => (p.intensity > c.intensity ? p : c))
       : null;
 
-  let insight = "Você teve uma semana ";
-  if (average >= 7) insight += "geralmente positiva. Suas emoções parecem equilibradas.";
-  else if (average >= 5) insight += "com altos e baixos. É normal ter dias diferentes.";
-  else insight += "mais desafiadora. Lembre-se de ser gentil consigo mesmo.";
+  let insight = "Você teve uma semana de estudos ";
+  if (average >= 7) insight += "geralmente positiva. Suas emoções parecem equilibradas — continue assim.";
+  else if (average >= 5) insight += "com altos e baixos. É normal ter dias diferentes na rotina escolar.";
+  else insight += "mais desafiadora. Lembre-se de ser gentil consigo mesmo: uma nota não define o seu valor.";
 
   if (saddestDay) {
-    insight += ` ${saddestDay.dayName} foi um dia mais difícil (${saddestDay.emotion}, ${saddestDay.intensity}/10).`;
+    insight += ` ${saddestDay.dayName} foi um dia mais difícil (${saddestDay.emotion}, ${saddestDay.intensity}/10). Se a pressão apertar, o SOS Prova pode ajudar.`;
   }
   if (happiestDay) {
     insight += ` ${happiestDay.dayName} foi um dia especialmente bom.`;
